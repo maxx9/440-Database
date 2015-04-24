@@ -1,0 +1,22 @@
+USE [s15guest38]
+GO
+/****** Object:  Table [dbo].[Vendor]    Script Date: 4/23/2015 10:38:14 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Vendor](
+	[Vendor_id] [int] IDENTITY(1,1) NOT NULL,
+	[Vendor_Name] [varchar](100) NULL,
+	[Vendor_Description] [varchar](300) NULL,
+ CONSTRAINT [PK_Vendor] PRIMARY KEY CLUSTERED 
+(
+	[Vendor_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
