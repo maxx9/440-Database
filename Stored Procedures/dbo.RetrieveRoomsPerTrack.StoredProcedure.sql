@@ -1,6 +1,6 @@
 USE [s15guest38]
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveRoomsPerTrack]    Script Date: 4/23/2015 10:38:14 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveRoomsPerTrack]    Script Date: 4/25/2015 2:58:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12,7 +12,7 @@ GO
 -- =============================================
 CREATE PROCEDURE [dbo].[RetrieveRoomsPerTrack]
 	-- Add the parameters for the stored procedure here
-	@TID int
+	@TRACKID int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -27,7 +27,7 @@ BEGIN
 	INNER JOIN [dbo].[Schedule] S on S.Presentation_id = P.Presentation_id
 	INNER JOIN [dbo].[Room] R on R.Room_id = S.Room_id
 
-	WHERE T.Track_id = @TID
+	WHERE T.Track_id = @TRACKID
 	ORDER BY P.Title
 END
 

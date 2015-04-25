@@ -1,6 +1,6 @@
 USE [s15guest38]
 GO
-/****** Object:  Table [dbo].[Presentation]    Script Date: 4/23/2015 10:38:14 PM ******/
+/****** Object:  Table [dbo].[Presentation]    Script Date: 4/25/2015 2:58:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -13,7 +13,7 @@ CREATE TABLE [dbo].[Presentation](
 	[Description] [varchar](300) NULL,
 	[Topic] [varchar](50) NULL,
 	[Duration] [varchar](50) NULL,
-	[Dificulty_id] [int] NULL,
+	[Difficulty_id] [int] NULL,
 	[Track_id] [int] NULL,
  CONSTRAINT [PK_Presentation] PRIMARY KEY CLUSTERED 
 (
@@ -24,7 +24,7 @@ CREATE TABLE [dbo].[Presentation](
 GO
 SET ANSI_PADDING OFF
 GO
-ALTER TABLE [dbo].[Presentation]  WITH CHECK ADD  CONSTRAINT [FK_Presentation_Difficulty] FOREIGN KEY([Dificulty_id])
+ALTER TABLE [dbo].[Presentation]  WITH CHECK ADD  CONSTRAINT [FK_Presentation_Difficulty] FOREIGN KEY([Difficulty_id])
 REFERENCES [dbo].[Difficulty] ([Difficulty_id])
 GO
 ALTER TABLE [dbo].[Presentation] CHECK CONSTRAINT [FK_Presentation_Difficulty]

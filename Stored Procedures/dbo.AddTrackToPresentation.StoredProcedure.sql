@@ -1,6 +1,6 @@
 USE [s15guest38]
 GO
-/****** Object:  StoredProcedure [dbo].[AddTrackToPresentation]    Script Date: 4/23/2015 10:38:14 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddTrackToPresentation]    Script Date: 4/25/2015 2:58:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12,8 +12,8 @@ GO
 -- =============================================
 CREATE PROCEDURE [dbo].[AddTrackToPresentation]
 	-- Add the parameters for the stored procedure here
-	@PID int, 
-	@TID int
+	@PRESENTATIONID int, 
+	@TRACKID int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -22,8 +22,8 @@ BEGIN
 
     -- Insert statements for procedure here
 	UPDATE [dbo].[Presentation]
-	SET [Track_id] = @TID
-	WHERE  [Presentation_id] = @PID
+	SET [Track_id] = @TRACKID
+	WHERE  [Presentation_id] = @PRESENTATIONID
 END
 
 GO

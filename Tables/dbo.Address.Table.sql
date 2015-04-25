@@ -1,6 +1,6 @@
 USE [s15guest38]
 GO
-/****** Object:  Table [dbo].[Address]    Script Date: 4/23/2015 10:38:14 PM ******/
+/****** Object:  Table [dbo].[Address]    Script Date: 4/25/2015 2:58:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

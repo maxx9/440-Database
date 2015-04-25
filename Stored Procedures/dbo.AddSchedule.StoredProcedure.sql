@@ -1,6 +1,6 @@
 USE [s15guest38]
 GO
-/****** Object:  StoredProcedure [dbo].[AddSchedule]    Script Date: 4/23/2015 10:38:14 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddSchedule]    Script Date: 4/25/2015 2:58:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -12,9 +12,9 @@ GO
 -- =============================================
 CREATE PROCEDURE [dbo].[AddSchedule] 
 	-- Add the parameters for the stored procedure here
-	@RID int, 
-	@T varchar(50), 
-	@PID int
+	@ROOMID int, 
+	@TIME varchar(50), 
+	@PRESENTATIONID int
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -27,9 +27,9 @@ BEGIN
            ,[Time]
            ,[Presentation_id])
      VALUES
-           (@RID
-           ,@T
-           ,@PID)
+           (@ROOMID
+           ,@TIME
+           ,@PRESENTATIONID)
 END
 
 GO

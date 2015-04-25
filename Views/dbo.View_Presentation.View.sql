@@ -1,17 +1,17 @@
 USE [s15guest38]
 GO
-/****** Object:  View [dbo].[View_Person]    Script Date: 4/25/2015 2:58:36 PM ******/
+/****** Object:  View [dbo].[View_Presentation]    Script Date: 4/25/2015 2:58:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-/*WHERE P.Last_Name LIKE '%a%'
-ORDER BY P.Last_Name, P.First_Name*/
-CREATE VIEW [dbo].[View_Person]
+CREATE VIEW [dbo].[View_Presentation]
 AS
-SELECT        P.First_Name, P.Last_Name, A.Street_1, A.Street_2, A.City, A.Zip, A.State_Country, P.Email
-FROM            dbo.Person AS P LEFT OUTER JOIN
-                         dbo.Address AS A ON P.Address_id = A.Address_id
+SELECT        P.Title, D.Difficulty_Level, Per.First_Name, Per.Last_Name
+FROM            dbo.Presentation AS P INNER JOIN
+                         dbo.Difficulty AS D ON D.Difficulty_id = P.Difficulty_id INNER JOIN
+                         dbo.PersonPresentationRole AS PPR ON P.Presentation_id = PPR.Presentation_id INNER JOIN
+                         dbo.Person AS Per ON PPR.Person_id = Per.Person_id
 
 GO
 EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
@@ -19,15 +19,15 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[41] 4[19] 2[17] 3) )"
+         Configuration = "(H (1[29] 4[17] 2[21] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
-         Configuration = "(H (1[50] 4[25] 3) )"
+         Configuration = "(H (1 [50] 4 [25] 3))"
       End
       Begin PaneConfiguration = 2
          NumPanes = 3
-         Configuration = "(H (1[38] 2[28] 3) )"
+         Configuration = "(H (1 [50] 2 [25] 3))"
       End
       Begin PaneConfiguration = 3
          NumPanes = 3
@@ -39,7 +39,7 @@ Begin DesignProperties =
       End
       Begin PaneConfiguration = 5
          NumPanes = 2
-         Configuration = "(H (2[66] 3) )"
+         Configuration = "(H (2 [66] 3))"
       End
       Begin PaneConfiguration = 6
          NumPanes = 2
@@ -77,7 +77,7 @@ Begin DesignProperties =
          NumPanes = 1
          Configuration = "(V (2))"
       End
-      ActivePaneConfig = 2
+      ActivePaneConfig = 0
    End
    Begin DiagramPane = 
       Begin Origin = 
@@ -93,14 +93,34 @@ Begin DesignProperties =
                Right = 208
             End
             DisplayFlags = 280
-            TopColumn = 1
+            TopColumn = 0
          End
-         Begin Table = "A"
+         Begin Table = "D"
+            Begin Extent = 
+               Top = 6
+               Left = 454
+               Bottom = 101
+               Right = 624
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "PPR"
             Begin Extent = 
                Top = 6
                Left = 246
-               Bottom = 135
+               Bottom = 118
                Right = 416
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Per"
+            Begin Extent = 
+               Top = 6
+               Left = 662
+               Bottom = 135
+               Right = 832
             End
             DisplayFlags = 280
             TopColumn = 0
@@ -112,9 +132,8 @@ Begin DesignProperties =
    Begin DataPane = 
       Begin ParameterDefaults = ""
       End
-      Begin ColumnWidths = 10
+      Begin ColumnWidths = 9
          Width = 284
-         Width = 1500
          Width = 1500
          Width = 1500
          Width = 1500
@@ -126,7 +145,6 @@ Begin DesignProperties =
       End
    End
    Begin CriteriaPane = 
-      PaneHidden = 
       Begin ColumnWidths = 11
          Column = 1440
          Alias = 900
@@ -144,7 +162,7 @@ Begin DesignProperties =
       End
    End
 End
-' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'View_Person'
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'View_Presentation'
 GO
-EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'View_Person'
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'View_Presentation'
 GO
